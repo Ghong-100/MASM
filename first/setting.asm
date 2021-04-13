@@ -256,41 +256,43 @@
 ;
 
 
-TITLE PTR
+;TITLE PTR
+;
+;INCLUDE Irvine32.inc
+;
+;	PBYTE	TYPEDEF	PTR	BYTE
+;	PWORD	TYPEDEF	PTR	WORD
+;	PDWORD	TYPEDEF	PTR	DWORD
+;
+;.data
+;	arrayB BYTE 10h, 20h, 30h
+;	arrayW WORD 1, 2, 3
+;	arrayD DWORD 4, 5, 6
+;	ptr1 PBYTE arrayB
+;	ptr2 PWORD arrayW
+;	ptr3 PDWORD arrayD
+;.code
+;
+;main	PROC
+;
+;	mov eax, 0
+;	mov esi, ptr1
+;	mov al, [esi]
+;	call DumpRegs
+;	
+;	mov esi, ptr2
+;	mov ax, [esi]
+;	call DumpRegs
+;	
+;	mov esi, ptr3
+;	mov ax, [esi]
+;	call DumpRegs
+;	
+;	mov ax, [esi+16]
+;	call DumpRegs
+;
+;main ENDP
+;
+;END main
 
-INCLUDE Irvine32.inc
-
-	PBYTE	TYPEDEF	PTR	BYTE
-	PWORD	TYPEDEF	PTR	WORD
-	PDWORD	TYPEDEF	PTR	DWORD
-
-.data
-	arrayB BYTE 10h, 20h, 30h
-	arrayW WORD 1, 2, 3
-	arrayD DWORD 4, 5, 6
-	ptr1 PBYTE arrayB
-	ptr2 PWORD arrayW
-	ptr3 PDWORD arrayD
-.code
-
-main	PROC
-
-	mov eax, 0
-	mov esi, ptr1
-	mov al, [esi]
-	call DumpRegs
-	
-	mov esi, ptr2
-	mov ax, [esi]
-	call DumpRegs
-	
-	mov esi, ptr3
-	mov ax, [esi]
-	call DumpRegs
-	
-	mov ax, [esi+16]
-	call DumpRegs
-
-main ENDP
-
-END main
+END
